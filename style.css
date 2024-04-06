@@ -1,0 +1,66 @@
+@import compass
+
+html, body
+  height: 100%
+
+body
+  animation: color 45s linear infinite
+  background-image: radial-gradient(rgba(255, 255, 255, 0.4), rgba(0, 0, 0, 0.3))
+  color: #fff
+  font: 700 100%/1 'Lato', sans-serif
+  overflow: hidden
+
+div
+  font-size: 3.5em
+  height: 100%
+  left: 0
+  letter-spacing: -0.05em
+  position: absolute
+  text-align: center
+  top: 0
+  transform: translateY(100%)
+  width: 100%
+a
+  bckground: rgba(0, 0, 0, 0.5)
+  border-radius: 0.2em
+  color: #fff
+  display: block
+  font-size: 0.9em
+  font-weight: 400
+  opacity: 0.5
+  padding: 0.5em 0.75em
+  position: absolute
+  right: 0.75em
+  text-decoration: none
+  transition: opacity 1s
+  top: 0.75em
+  
+a:hover, a:focus
+  opacity: 1
+@keyframes color
+  @for $i from 0 through 10
+    #{$i * 10}%
+      background-color: hsl(180 + ($i * 36), 100%, 40%)
+  
+@for $i from 1 through 10
+  div:nth-child(#{$i})
+    animation: shift 3s $i * 3s - 4s
+  
+div:nth-child(11)
+  animation: credit 4s 35s forwards
+  
+@keyframes shift
+  0%
+    transform: translateY(100%) scale(0.25)
+  25%
+    transform: translateY(0%) scale(1)
+  75%
+    transform: translateY(0%) scale(1)
+  100%
+    transform: translateY(-100%) scale(0.25)
+
+@keyframes credit
+  0%
+    transform: translateY(100%) scale(0.25)
+  100%
+    transform: translateY(0%) scale(1)
